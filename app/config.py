@@ -50,6 +50,6 @@ class Settings(BaseSettings):
 
 
 settings = Settings()
-print("MIRAR CONFIG DATABASE URL:", settings.database_url)
+
 
 
