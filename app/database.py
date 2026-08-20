@@ -7,6 +7,7 @@ from app.config import settings
 # URL con las variables sin hardcode
 SQLALCHEMY_DATABASE_URL= settings.database_url
 print("DATABASE URL:", settings.database_url)
+print("DATABASE HOST:", settings.database_url.split("@")[-1])
 
 # Crea el "engine" de SQLAlchemy, que es el objeto principal para conectarse a la base de datos.
 # El engine maneja la comunicación con PostgreSQL.
