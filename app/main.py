@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.router import Oauth2, authjwtBearer, posts, users, vote
-from ..app import alchemy_models
+from .router import Oauth2, authjwtBearer, posts, users, vote
+from . import alchemy_models
 from .database import engine
 
 app = FastAPI()

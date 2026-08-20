@@ -3,7 +3,7 @@ from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
 from sqlalchemy.orm import Session
 from sqlalchemy import select
 from datetime import datetime, timedelta, timezone
-from app import alchemy_models, database, schemasORM, utilshash 
+from .. import alchemy_models, database, schemasORM, utilshash 
 from jose import jwt, JWTError
 from app.config import settings
 
