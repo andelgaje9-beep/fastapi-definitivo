@@ -1,11 +1,12 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker, Session
-from .config import settings
+from app.config import settings
 
 # SQLALCHEMY_DATABASE_URL="postgresql+psycopg://postgres:0624@localhost:5432/fastapi"
 
 # URL con las variables sin hardcode
-SQLALCHEMY_DATABASE_URL= f"postgresql+psycopg://{settings.database_username}:{settings.database_password}@{settings.database_hostname}:{settings.database_port}/{settings.database_name}"
+SQLALCHEMY_DATABASE_URL= settings.database_url
+print("DATABASE URL:", settings.database_url)
 
 # Crea el "engine" de SQLAlchemy, que es el objeto principal para conectarse a la base de datos.
 # El engine maneja la comunicación con PostgreSQL.
@@ -23,7 +24,7 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 
 # Se usa para crear automaticamente las tablas en postgres siempre y cuando no usemos alembic
-Base.metadata.create_all(bind=engine)
+# Base.metadata.create_all(bind=engine)
 
 #Dependency
 def get_session():

@@ -3,9 +3,9 @@ from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
 from sqlalchemy.orm import Session
 from sqlalchemy import select
 from datetime import datetime, timedelta, timezone
-from .. import alchemy_models, database, schemasORM, utilshash 
+from app import alchemy_models, database, schemasORM, utilshash 
 from jose import jwt, JWTError
-from ..config import settings
+from app.config import settings
 
 
 router = APIRouter(tags=["Authentication"])
