@@ -1,19 +1,12 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from app.router import Oauth2, authjwtBearer, posts, users, vote
 
-from .router import Oauth2, authjwtBearer, posts, users, vote
-from . import alchemy_models
-from .database import engine
 
 app = FastAPI()
 
 
-origins = [
-    "http://localhost.tiangolo.com",
-    "https://localhost.tiangolo.com",
-    "http://localhost",
-    "http://localhost:8080",
-]
+origins = ["*"]
 
 app.add_middleware(
     CORSMiddleware,
@@ -29,8 +22,6 @@ app.include_router(authjwtBearer.router)
 app.include_router(Oauth2.router)
 app.include_router(vote.router)
 
-
-alchemy_models.Base.metadata.create_all(bind=engine)
     
     
 @app.get("/")
