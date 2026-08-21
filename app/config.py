@@ -45,12 +45,12 @@ class Settings(BaseSettings):
     access_token_expire_minutes: int = 30
 
     model_config = SettingsConfigDict(
-        env_file=".env.render" if env == "render" else ".env"
+        env_file=".env" #CAMBIO 1
+        # env_file=".env.render" if env == "render" else ".env" 
     )
 
 
 settings = Settings()
-print(settings)
 
 
 
